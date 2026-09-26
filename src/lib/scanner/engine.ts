@@ -6,7 +6,7 @@ import type { Confidence, Finding, PackageDep, SampleFile, ScanResult, Severity,
 
 type EvidenceKind = "direct-instantiation" | "certificate-field" | "dependency" | "wrapper" | "config";
 const DEFAULT_ROOT = resolve(process.cwd(), "demo", "seeded-estate");
-const EXTENSIONS = new Set([".ts", ".js", ".py", ".mjs", ".json", ".txt", ".pem", ".yaml", ".yml", ".toml", ".ini", ".conf"]);
+const EXTENSIONS = new Set([".ts", ".js", ".py", ".mjs", ".json", ".txt", ".pem", ".crt", ".yaml", ".yml", ".toml", ".ini", ".conf", ".env"]);
 const IGNORED_DIRECTORIES = new Set([".git", ".vercel", ".output", ".nitro", ".tanstack", "node_modules", "dist", "build", "coverage"]);
 const IGNORED_FILES = new Set(["package-lock.json"]);
 const MAX_BYTES = 1024 * 1024;
@@ -64,7 +64,8 @@ function walk(directory: string): string[] {
     const path = join(directory, entry.name);
     if (entry.isDirectory() && !IGNORED_DIRECTORIES.has(entry.name)) files.push(...walk(path));
     else if (entry.isFile() && !IGNORED_FILES.has(entry.name) &&
-      EXTENSIONS.has(entry.name.slice(entry.name.lastIndexOf("."))) && statSync(path).size <= MAX_BYTES) files.push(path);
+      (EXTENSIONS.has(entry.name.slice(entry.name.lastIndexOf("."))) || /^\.env(?:\.[\w-]+)?$/.test(entry.name)) &&
+      statSync(path).size <= MAX_BYTES) files.push(path);
   }
   return files;
 }
@@ -115,8 +116,8 @@ function finding(file: SampleFile, line: number, kind: EvidenceKind, values: Omi
     component: file.component, evidence: `${file.path}:${line}` };
 }
 function scanSource(file: SampleFile): Finding[] {
-  if (file.path.endsWith(".pem")) return [];
-  const isConfig = /\.(?:json|yaml|yml|toml|ini|conf)$/.test(file.path);
+  if (/\.(?:pem|crt)$/i.test(file.path)) return [];
+  const isConfig = /\.(?:json|yaml|yml|toml|ini|conf|env)$/i.test(file.path) || /(?:^|\/)\.env(?:\.[\w-]+)?$/.test(file.path);
   const executable = executablePositions(file.content, file.language === "python");
   const results: Finding[] = [];
   for (const rule of RULES) {
@@ -135,7 +136,7 @@ function scanSource(file: SampleFile): Finding[] {
   return results;
 }
 function scanCertificate(file: SampleFile): Finding[] {
-  if (!file.path.endsWith(".pem")) return [];
+  if (!/\.(?:pem|crt)$/i.test(file.path)) return [];
   if (!file.content.includes("-----BEGIN CERTIFICATE-----")) return [];
   const cert = forge.pki.certificateFromPem(file.content);
   const signatureOid = cert.signatureOid;

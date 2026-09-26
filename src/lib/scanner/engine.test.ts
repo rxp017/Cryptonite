@@ -40,6 +40,19 @@ test("dependency, wrapper, and protocol references alone are never confirmed", (
   }
 });
 
+test("an env-style config is discovered from a real folder with uncertain confidence", () => {
+  const root = mkdtempSync(join(tmpdir(), "cryptonite-env-"));
+  try {
+    writeFileSync(join(root, ".env.production"), "TLS_VERSION=TLSv1\n");
+    const scan = scanEstate(root);
+    assert.equal(scan.files, 1);
+    assert.deepEqual(scan.findings.map((item) => [item.path, item.line, item.confidence]),
+      [[".env.production", 1, "uncertain"]]);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("algorithm text inside strings and comments is not confirmed", () => {
   const root = mkdtempSync(join(tmpdir(), "cryptonite-literals-"));
   try {

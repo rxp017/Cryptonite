@@ -3,6 +3,7 @@ import { ConfidenceMark } from "@/components/lattice/confidence-mark";
 import { buildChecklist, buildGraph } from "@/lib/scanner/plan";
 import type { ChecklistItem, Confidence } from "@/lib/scanner/types";
 import { useLattice } from "@/lib/store";
+import { MigrationFlowchart } from "./migration-flowchart";
 
 function ChecklistGroup({
   title,
@@ -91,8 +92,10 @@ export function Plan() {
         />
       </div>
 
+      <MigrationFlowchart scan={scan} />
+
       <section>
-        <h2 className="lattice-section-title">Migration order graph</h2>
+        <h2 className="lattice-section-title">Ordered finding evidence</h2>
         <p className="mt-1 text-sm text-muted">
           Each node is a finding. Arrows show review order, not software dependencies.
         </p>

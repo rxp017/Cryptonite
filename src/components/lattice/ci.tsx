@@ -11,8 +11,9 @@ export function CiGate() {
       <div>
         <h1 className="lattice-title">Scanner CLI and CI status</h1>
         <p className="lattice-lede">
-          The local scanner CLI runs. A GitHub pull-request check and comment workflow are not
-          implemented. This tab does not show PR diff results.
+          The local scanner CLI runs. A GitHub workflow is in the repository for PR and push
+          comparisons, but no GitHub run has been verified for this revision. This tab does not
+          show PR diff results.
         </p>
       </div>
       <section className="lattice-card">
@@ -22,6 +23,15 @@ export function CiGate() {
         </code>
         <p className="mt-2 text-xs text-muted">
           JSON goes to standard output. Evidence paths are relative to the target folder.
+        </p>
+      </section>
+      <section className="lattice-card">
+        <h2 className="lattice-section-title">Workflow in source</h2>
+        <p className="mt-2 text-sm text-muted">
+          <span className="font-mono">.github/workflows/crypto-ci.yml</span> scans the current and base
+          revisions, warns on new dependency/config references, and gates new high-severity config
+          or protocol references. Same-repository PRs receive a findings comment. Hosted execution
+          is unverified until a GitHub Actions run completes.
         </p>
       </section>
       <section className="lattice-card">

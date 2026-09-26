@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { useLattice } from "@/lib/store";
 import type { Severity } from "@/lib/scanner/types";
+import { DependencyGraph } from "./dependency-graph";
 
 function sevTone(s: Severity) {
   if (s === "critical") return "risk" as const;
@@ -18,7 +19,7 @@ export function Inventory() {
       <div>
         <h1 className="lattice-title">Dependency inventory</h1>
         <p className="lattice-lede">
-          Direct packages from the seeded manifests and their file-backed crypto evidence.
+          Direct packages from the scanned manifests and file-backed crypto evidence.
         </p>
       </div>
 
@@ -51,6 +52,8 @@ export function Inventory() {
           </article>
         ))}
       </div>
+
+      <DependencyGraph scan={scan} />
 
       <section className="overflow-hidden rounded-xl bg-surface shadow-[var(--shadow-border)]">
         <div className="border-b border-border px-5 py-4">

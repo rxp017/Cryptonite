@@ -1,0 +1,165 @@
+{
+  "environment": "local Vite production preview",
+  "base": "http://127.0.0.1:8083",
+  "scanProof": "screenshots/built-scan-proof.json",
+  "externalFailures": [
+    "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap",
+    "https://grok.com/grok-app-builder/extensions.js"
+  ],
+  "captures": [
+    {
+      "tab": "overview",
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 800,
+      "url": "http://127.0.0.1:8083/?tab=overview",
+      "heading": "Seeded Crypto Estate",
+      "path": "screenshots/built-overview.png",
+      "bytes": 67146,
+      "sha256": "5513248657d28849987e5bc59df06ef1778050c75a9de8c49fa1335da56e7a80"
+    },
+    {
+      "tab": "findings",
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 800,
+      "url": "http://127.0.0.1:8083/?tab=findings",
+      "heading": "Findings",
+      "path": "screenshots/built-findings.png",
+      "bytes": 106372,
+      "sha256": "b0e2f282d64dc423eb1db30e21fb3617da9bdcdab1da285180f33ef16115a116"
+    },
+    {
+      "tab": "inventory",
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 800,
+      "url": "http://127.0.0.1:8083/?tab=inventory",
+      "heading": "Dependency inventory",
+      "path": "screenshots/built-inventory.png",
+      "bytes": 83842,
+      "sha256": "7f10ac2ab45d5cf6f9d0c7d21dcb6cb86e33ca8082ab8e86388abd9adb689daa"
+    },
+    {
+      "tab": "plan",
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 800,
+      "url": "http://127.0.0.1:8083/?tab=plan",
+      "heading": "Migration plan",
+      "path": "screenshots/built-plan.png",
+      "bytes": 120397,
+      "sha256": "3cd6a25c3249155a3cc135fa585b825439c67fa6cc9312a1217d9187d1d81dee"
+    },
+    {
+      "tab": "sandbox",
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 800,
+      "url": "http://127.0.0.1:8083/?tab=sandbox",
+      "heading": "Crypto-agility sandbox",
+      "path": "screenshots/built-sandbox.png",
+      "bytes": 68822,
+      "sha256": "25071934cd8a4a19582391efea39f0a6c138a767cc436b6ebc168b906bf10651"
+    },
+    {
+      "tab": "ci",
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 800,
+      "url": "http://127.0.0.1:8083/?tab=ci",
+      "heading": "Scanner CLI and CI status",
+      "path": "screenshots/built-ci.png",
+      "bytes": 84666,
+      "sha256": "13d5996bc4ac8990a4b5182ebded1055218d27e5c13d2421db655e0f0e6cd462"
+    },
+    {
+      "tab": "report",
+      "viewport": "desktop",
+      "width": 1280,
+      "height": 800,
+      "url": "http://127.0.0.1:8083/?tab=report",
+      "heading": "Crypto migration report",
+      "path": "screenshots/built-report.png",
+      "bytes": 124230,
+      "sha256": "48b7f6048b9f0fbe8201336d9c95bb9a26bc74b9341af4f2c47fa53b1be489f2"
+    },
+    {
+      "tab": "overview",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "url": "http://127.0.0.1:8083/?tab=overview",
+      "heading": "Seeded Crypto Estate",
+      "path": "screenshots/built-overview-mobile.png",
+      "bytes": 43720,
+      "sha256": "f5d1e028dc100ebeb4b80a74475c14715c021637e09bc33353fb86a2bfde18bb"
+    },
+    {
+      "tab": "findings",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "url": "http://127.0.0.1:8083/?tab=findings",
+      "heading": "Findings",
+      "path": "screenshots/built-findings-mobile.png",
+      "bytes": 43907,
+      "sha256": "44194330466f3d5651a99c643be9bb40255363a8f9cb36e83e76c5c6a4ea535b"
+    },
+    {
+      "tab": "inventory",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "url": "http://127.0.0.1:8083/?tab=inventory",
+      "heading": "Dependency inventory",
+      "path": "screenshots/built-inventory-mobile.png",
+      "bytes": 53012,
+      "sha256": "a3b0f9d3e8bf7674cd665588afa60face2f9995bc37886d4e999d4e3612c622b"
+    },
+    {
+      "tab": "plan",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "url": "http://127.0.0.1:8083/?tab=plan",
+      "heading": "Migration plan",
+      "path": "screenshots/built-plan-mobile.png",
+      "bytes": 58009,
+      "sha256": "09e843e3e1fc068225b3445b12bf8ec0c029d2b092f871855793484b2045d21d"
+    },
+    {
+      "tab": "sandbox",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "url": "http://127.0.0.1:8083/?tab=sandbox",
+      "heading": "Crypto-agility sandbox",
+      "path": "screenshots/built-sandbox-mobile.png",
+      "bytes": 48444,
+      "sha256": "c30837fc43a4007f1b1cee2627aa20d1b8e9a589be61ecbf8ba74d9569efe30f"
+    },
+    {
+      "tab": "ci",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "url": "http://127.0.0.1:8083/?tab=ci",
+      "heading": "Scanner CLI and CI status",
+      "path": "screenshots/built-ci-mobile.png",
+      "bytes": 54823,
+      "sha256": "267d6ad0c5db9a670f9bdf6ae441e14c2a49587a6f66e03657fe45b063538050"
+    },
+    {
+      "tab": "report",
+      "viewport": "mobile",
+      "width": 390,
+      "height": 844,
+      "url": "http://127.0.0.1:8083/?tab=report",
+      "heading": "Crypto migration report",
+      "path": "screenshots/built-report-mobile.png",
+      "bytes": 60536,
+      "sha256": "cac476e3eb8c6f74e1eb18c670de8e986484590ce04c9082c7e5fe7ef92acc48"
+    }
+  ]
+}

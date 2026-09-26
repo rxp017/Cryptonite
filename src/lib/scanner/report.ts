@@ -6,7 +6,7 @@ export const QUANTUM_SAFETY_DISCLAIMER =
   "This report does not prove the system is quantum-safe, PQC-ready, or FIPS-validated.";
 
 export const REPORT_LIMITATIONS = [
-  "This is a static inventory of source patterns, direct manifest dependencies, and parsed PEM certificate fields. Absence of a finding is not evidence of absence.",
+  "This is a static inventory of source patterns, direct manifest dependencies, and parsed PEM-formatted certificate fields (.pem or .crt). Absence of a finding is not evidence of absence.",
   "A dependency or wrapper finding identifies a possible capability, not actual algorithm use. Transitive dependencies and general call graphs are not inspected.",
   "Runtime paths, HSMs, sidecars, firmware, CDN TLS, managed services, certificate trust chains, and revocation are outside this scan.",
   "Source evidence does not prove that the matching path runs in production.",
@@ -28,7 +28,7 @@ export type ReportModel = {
   disclaimer: string;
 };
 
-export function buildReportModel(scan: ScanResult): ReportModel {
+export function buildReportModel(scan: ScanResult, estateName = ESTATE_NAME): ReportModel {
   const work = buildChecklist(scan);
   const confirmedWork = work.filter((item) => item.finding.confidence === "confirmed");
   const uncertainWork = work.filter((item) => item.finding.confidence === "uncertain");
@@ -56,7 +56,7 @@ export function buildReportModel(scan: ScanResult): ReportModel {
   ];
 
   return {
-    title: "Crypto migration report", estateName: ESTATE_NAME,
+    title: "Crypto migration report", estateName,
     generatedAt: scan.scannedAt, fileCount: scan.files, findingCount: scan.findings.length,
     confirmed: confirmedWork.map((item) => item.finding),
     uncertain: uncertainWork.map((item) => item.finding),

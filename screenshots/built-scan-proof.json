@@ -1,0 +1,185 @@
+{
+  "source": "GET _serverFn response from each running environment",
+  "expected": {
+    "files": 11,
+    "findings": 15,
+    "confirmed": 5,
+    "uncertain": 10
+  },
+  "dev": {
+    "url": "http://127.0.0.1:8080",
+    "requestUrl": "http://127.0.0.1:8080/_serverFn/eyJmaWxlIjoiL3NyYy9saWIvc2Nhbm5lci9hcGkudHM_dHNzLXNlcnZlcmZuLXNwbGl0IiwiZXhwb3J0IjoiZ2V0RXN0YXRlU25hcHNob3RfY3JlYXRlU2VydmVyRm5faGFuZGxlciJ9",
+    "scannedAt": "2026-09-26T08:45:13.200Z",
+    "counts": {
+      "files": 11,
+      "findings": 15,
+      "confirmed": 5,
+      "uncertain": 10
+    },
+    "evidence": [
+      {
+        "path": "demo/seeded-estate/certs/legacy-rsa1024-sha1.pem",
+        "line": 1,
+        "confidence": "confirmed"
+      },
+      {
+        "path": "demo/seeded-estate/certs/modern-rsa2048-sha256.pem",
+        "line": 1,
+        "confidence": "confirmed"
+      },
+      {
+        "path": "demo/seeded-estate/src/legacy/cipher.py",
+        "line": 5,
+        "confidence": "uncertain"
+      },
+      {
+        "path": "demo/seeded-estate/src/legacy/hash.ts",
+        "line": 4,
+        "confidence": "confirmed"
+      },
+      {
+        "path": "demo/seeded-estate/src/legacy/network.py",
+        "line": 5,
+        "confidence": "uncertain"
+      },
+      {
+        "path": "demo/seeded-estate/src/legacy/rsa.ts",
+        "line": 4,
+        "confidence": "confirmed"
+      },
+      {
+        "path": "demo/seeded-estate/src/legacy/rsa.ts",
+        "line": 5,
+        "confidence": "uncertain"
+      },
+      {
+        "path": "demo/seeded-estate/src/legacy/cipher.py",
+        "line": 10,
+        "confidence": "confirmed"
+      },
+      {
+        "path": "demo/seeded-estate/package.json",
+        "line": 9,
+        "confidence": "uncertain"
+      },
+      {
+        "path": "demo/seeded-estate/package.json",
+        "line": 10,
+        "confidence": "uncertain"
+      },
+      {
+        "path": "demo/seeded-estate/requirements.txt",
+        "line": 1,
+        "confidence": "uncertain"
+      },
+      {
+        "path": "demo/seeded-estate/requirements.txt",
+        "line": 3,
+        "confidence": "uncertain"
+      },
+      {
+        "path": "demo/seeded-estate/src/legacy/cipher.py",
+        "line": 1,
+        "confidence": "uncertain"
+      },
+      {
+        "path": "demo/seeded-estate/src/legacy/cipher.py",
+        "line": 2,
+        "confidence": "uncertain"
+      },
+      {
+        "path": "demo/seeded-estate/tools/generate-certs.mjs",
+        "line": 4,
+        "confidence": "uncertain"
+      }
+    ]
+  },
+  "built": {
+    "url": "http://127.0.0.1:8083",
+    "requestUrl": "http://127.0.0.1:8083/_serverFn/a51f2f09d6de5b6284255774a51e467cb8df1b77084ff5457816986c11315dd7",
+    "scannedAt": "2026-09-26T08:45:19.575Z",
+    "counts": {
+      "files": 11,
+      "findings": 15,
+      "confirmed": 5,
+      "uncertain": 10
+    },
+    "evidence": [
+      {
+        "path": "demo/seeded-estate/certs/legacy-rsa1024-sha1.pem",
+        "line": 1,
+        "confidence": "confirmed"
+      },
+      {
+        "path": "demo/seeded-estate/certs/modern-rsa2048-sha256.pem",
+        "line": 1,
+        "confidence": "confirmed"
+      },
+      {
+        "path": "demo/seeded-estate/src/legacy/cipher.py",
+        "line": 5,
+        "confidence": "uncertain"
+      },
+      {
+        "path": "demo/seeded-estate/src/legacy/hash.ts",
+        "line": 4,
+        "confidence": "confirmed"
+      },
+      {
+        "path": "demo/seeded-estate/src/legacy/network.py",
+        "line": 5,
+        "confidence": "uncertain"
+      },
+      {
+        "path": "demo/seeded-estate/src/legacy/rsa.ts",
+        "line": 4,
+        "confidence": "confirmed"
+      },
+      {
+        "path": "demo/seeded-estate/src/legacy/rsa.ts",
+        "line": 5,
+        "confidence": "uncertain"
+      },
+      {
+        "path": "demo/seeded-estate/src/legacy/cipher.py",
+        "line": 10,
+        "confidence": "confirmed"
+      },
+      {
+        "path": "demo/seeded-estate/package.json",
+        "line": 9,
+        "confidence": "uncertain"
+      },
+      {
+        "path": "demo/seeded-estate/package.json",
+        "line": 10,
+        "confidence": "uncertain"
+      },
+      {
+        "path": "demo/seeded-estate/requirements.txt",
+        "line": 1,
+        "confidence": "uncertain"
+      },
+      {
+        "path": "demo/seeded-estate/requirements.txt",
+        "line": 3,
+        "confidence": "uncertain"
+      },
+      {
+        "path": "demo/seeded-estate/src/legacy/cipher.py",
+        "line": 1,
+        "confidence": "uncertain"
+      },
+      {
+        "path": "demo/seeded-estate/src/legacy/cipher.py",
+        "line": 2,
+        "confidence": "uncertain"
+      },
+      {
+        "path": "demo/seeded-estate/tools/generate-certs.mjs",
+        "line": 4,
+        "confidence": "uncertain"
+      }
+    ]
+  }
+}

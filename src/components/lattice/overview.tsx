@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ESTATE_NAME, ESTATE_NOTE } from "@/lib/scanner/samples";
 import { useLattice } from "@/lib/store";
+import { ScanTarget } from "@/components/lattice/scan-target";
+import { OverviewCharts } from "@/components/lattice/overview-charts";
 import { cn } from "@/lib/utils";
 
 const toneFor = (k: string) =>
@@ -15,6 +17,7 @@ export function Overview() {
   const paste = useLattice((s) => s.paste);
   const reset = useLattice((s) => s.reset);
   const files = useLattice((s) => s.files);
+  const sourceName = useLattice((s) => s.sourceName);
   const [draft, setDraft] = useState("");
   const navigate = useNavigate();
 
@@ -31,9 +34,9 @@ export function Overview() {
       <section className="lattice-card sm:p-8">
         <p className="lattice-eyebrow">Estate</p>
         <h1 className="mt-2 max-w-2xl text-3xl font-medium tracking-tight sm:text-4xl">
-          {ESTATE_NAME}
+          {sourceName}
         </h1>
-        <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">{ESTATE_NOTE}</p>
+        <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">{sourceName === ESTATE_NAME ? ESTATE_NOTE : "Live results from the supplied scan target."}</p>
         <p className="mt-4 max-w-2xl text-sm leading-relaxed text-subtle">
           Lattice inventories algorithms, key sizes, libraries, certificates, and protocol knobs. It
           ranks migration work and demonstrates a swappable provider interface. It does not certify
@@ -62,6 +65,8 @@ export function Overview() {
           </Button>
         </div>
       </section>
+
+      <ScanTarget />
 
       <section className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
         {cards.map(([label, value]) => (
@@ -104,6 +109,8 @@ export function Overview() {
         ))}
       </section>
 
+      <OverviewCharts scan={scan} />
+
       <section className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="lattice-card">
           <h2 className="lattice-section-title">Scanned files</h2>
@@ -119,8 +126,8 @@ export function Overview() {
         <div className="lattice-card">
           <h2 className="lattice-section-title">Paste additional source</h2>
           <p className="mt-1 text-xs text-muted">
-            Scanned in memory as <span className="font-mono">pasted-input</span>. Reset or reload
-            clears it.
+            Scanned in memory as <span className="font-mono">pasted-input</span> alongside the bundled
+            estate. This action replaces an uploaded target. Reset or reload clears it.
           </p>
           <textarea
             value={draft}

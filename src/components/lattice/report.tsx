@@ -106,7 +106,8 @@ function WorkList({
 
 export function Report() {
   const scan = useLattice((state) => state.scan);
-  const report = buildReportModel(scan);
+  const sourceName = useLattice((state) => state.sourceName);
+  const report = buildReportModel(scan, sourceName);
   const markdown = renderMarkdownReport(report);
   const [downloadUrl, setDownloadUrl] = useState("");
   useEffect(() => {
