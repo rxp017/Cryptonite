@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Lattice",
+      "hasCanvas": false,
+      "bodyTextLen": 1450,
+      "bodyTextHash": "ae1225f17e545a7ef35566e3e8dfe4d3aade895dd384d21dc68d96b481f81e4e",
+      "bodyTextPrefix": "Lattice Crypto-agility scanner A scan does not prove quantum saf",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Lattice",
+      "hasCanvas": false,
+      "bodyTextLen": 1413,
+      "bodyTextHash": "308303344ed9799fa8175985405dc4a80c6d20b9e2407b6c70f2fd4248094df0",
+      "bodyTextPrefix": "Lattice Crypto-agility scanner Overview Findings 9 Inventory Mig",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}

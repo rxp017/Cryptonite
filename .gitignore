@@ -1,0 +1,12 @@
+node_modules/
+.vercel/
+.tanstack/
+.output/
+.nitro/
+dist/
+build/
+coverage/
+*.tsbuildinfo
+.node_modules.lock
+.grok/preview.log
+.grok/status

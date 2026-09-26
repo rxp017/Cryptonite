@@ -1,0 +1,13 @@
+{
+  "name": "lattice-seeded-estate",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate:certs": "node tools/generate-certs.mjs"
+  },
+  "dependencies": {
+    "node-forge": "1.4.0",
+    "selfsigned": "5.5.0",
+    "zod": "4.4.0"
+  }
+}

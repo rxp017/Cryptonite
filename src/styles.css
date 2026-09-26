@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0c0d0c;
+  --color-surface: #151614;
+  --color-elevated: #1c1d1b;
+  --color-fg: #ecece4;
+  --color-muted: #9a9b93;
+  --color-subtle: #6e6f68;
+  --color-border: color-mix(in oklab, var(--color-fg) 12%, transparent);
+  --color-border-strong: color-mix(in oklab, var(--color-fg) 22%, transparent);
+  --color-accent: #d6d2c4;
+  --color-accent-fg: #121310;
+  --color-risk: #c45c3e;
+  --color-warn: #c4a35a;
+  --color-ok: #7d9478;
+  --color-info: #8a9aa3;
+
+  --font-sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  --shadow-border: 0 0 0 1px rgba(236, 236, 228, 0.08);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.lattice-grid {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--color-fg) 5%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--color-fg) 5%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 48px 48px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45), transparent 70%);
+}
+
+@layer components {
+  .lattice-page {
+    @apply flex flex-col gap-6 sm:gap-8;
+  }
+
+  .lattice-title {
+    @apply text-2xl font-medium tracking-tight sm:text-3xl;
+  }
+
+  .lattice-lede {
+    @apply mt-2 max-w-2xl text-sm leading-relaxed text-muted;
+  }
+
+  .lattice-card {
+    @apply rounded-xl bg-surface p-5 shadow-[var(--shadow-border)] sm:p-6;
+  }
+
+  .lattice-section-title {
+    @apply text-base font-medium tracking-tight;
+  }
+
+  .lattice-eyebrow {
+    @apply text-xs font-medium uppercase tracking-wider text-muted;
+  }
+
+  .lattice-empty {
+    @apply flex min-h-52 flex-col items-center justify-center gap-3 rounded-xl border border-dashed border-border-strong bg-surface px-6 py-10 text-center;
+  }
+}
